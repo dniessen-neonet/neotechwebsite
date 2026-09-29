@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Competition - NEOTech 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-blue': '#063672',
+                        'neo-gold': '#E9BE5A',
+                        'neo-light-blue': '#1e5296', // Slightly lighter blue for hover states
+                    },
+                    fontFamily: {
+                        'title': ['Lilita One', 'Roboto', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to supplement Tailwind */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc; /* Very light slate background */
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-title {
+            font-family: 'Lilita One', 'Roboto', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Simple hover transition for links and buttons */
+        .transition-all-200 {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        /* Ensure the mobile menu has a smooth transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.open {
+            max-height: 300px; /* Adjust based on content */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+
+    <main class="flex-grow">
+        
+        <!-- Page Header -->
+        <div class="bg-neo-blue py-16 lg:py-24 border-b-8 border-neo-gold">
+           <img src="https://lh3.googleusercontent.com/d/1foSoai6F-3B2fW9jIdfpxADjsjZnuINn" 
+            alt="Neotech Logo" 
+            class="mx-auto mb-6 h-16 w-auto" 
+        />
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-title tracking-wide">
+                    Robotics Competition
+                </h1>
+            </div>
+        </div>
+
+        <!-- Intro Content -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
+                    Each year, NEOTech hosts a robotics competition for local middle school students. Participants use the 
+                    <a href="https://www.thenrc.org/contest-manual" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-all-200">NRC's guidelines</a> 
+                    to compete in tournaments in Boxbot, Mini Sumo, and Maze.
+                </p>
+            </div>
+        </section>
+
+        <!-- Competition Overview Promo Section -->
+        <section class="py-16 bg-cover bg-center bg-no-repeat relative" style="background-image: url('https://lh3.googleusercontent.com/d/1S1pzgev_U5OpWRajgXAA4xito-GUs9m8');">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- 3 Feature Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
+                    
+                    <!-- Card 1: WHAT? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHAT?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug mb-4">
+                                Robotics Competition for local 5th-8th Grade Middle School Students.
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                                Students' families, teachers, and administrators are welcome to spectate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: WHERE? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHERE?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug">
+                                Kent State University<br>Student Center Ballroom
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg mt-4">
+                                1075 Risman Dr, Kent, OH 44242
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-2">
+                            <img src="https://lh3.googleusercontent.com/d/1EmC1MZLkLzDPLb3e5aFEjMi_D7xXuPGJ" alt="Kent State University Logo" class="h-12 mx-auto object-contain">
+                        </div>
+                    </div>
+
+                    <!-- Card 3: WHEN? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHEN?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug mb-4">
+                                March 16th, 2027
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg mb-4">
+                                Competitions begin at 9:30am
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg">
+                                Contact <a href="mailto:neotech@neonet.org" class="text-neo-blue underline font-semibold hover:text-neo-gold">neotech@neonet.org</a> for details
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Signup Button -->
+                <div class="text-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTT3bwENpy1XqweVZSHb8_6Vaz9nBJK8VOOfWmTQk8A0CUFw/viewform" class="inline-block bg-white hover:bg-slate-50 text-neo-blue font-title text-xl md:text-2xl py-4 px-8 rounded-full border-2 border-neo-blue shadow-lg hover:shadow-xl transition-all-200">
+                        Sign Up Here!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Videos -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl text-neo-blue mb-4">Competition Highlights</h2>
+                    <div class="w-24 h-1 bg-neo-gold mx-auto rounded"></div>
+                </div>
+
+                <!-- Video Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- 2026 Video -->
+                    <a href="https://www.youtube.com/watch?v=6lEuwcqf2WU" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2026 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- 2025 Video -->
+                    <a href="https://www.youtube.com/watch?v=iRP0oFrRH1k" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2025 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- 2024 Video -->
+                    <a href="https://www.youtube.com/watch?v=DDub-HGgnVo" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2024 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+<footer class="bg-neo-blue text-white py-12 border-t-4 border-neo-gold text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Added justify-items-center to align grid items horizontally -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            
+            <!-- Brand Info -->
+            <div class="col-span-1 md:col-span-1">
+                <!-- Added justify-center to center the logo image -->
+                <div class="flex items-center justify-center mb-4">
+                    <img class="h-20 w-auto" src="https://lh3.googleusercontent.com/d/1foSoai6F-3B2fW9jIdfpxADjsjZnuINn" alt="NEOTech Logo">
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="font-title text-xl text-neo-gold mb-4">Contact Us</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="mailto:neotech@neonet.org" class="hover:text-white transition-all-200">neotech@neonet.org</a></li>
+                </ul>
+            </div>
+
+            <!-- Socials -->
+            <div>
+                <h4 class="font-title text-xl text-neo-gold mb-4">Follow Us</h4>
+                <!-- Added justify-center to center the social icon list -->
+                <div class="flex space-x-4 justify-center">
+                    <a href="https://x.com/NEOTechConf" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our X (Twitter) profile">
+                        <span class="sr-only">X (Twitter)</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/NEOnetITC/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Facebook page">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/neonetoh/?hl=en" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Instagram page">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.neonet.org" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Website">
+                        <span class="sr-only">Website</span>
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 pt-8 border-t border-neo-light-blue text-center text-sm text-gray-400">
+            <p>&copy; 2026/2027 NEOnet | All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Simple script to handle mobile menu toggling
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconClosed = document.getElementById('menu-icon-closed');
+            const iconOpen = document.getElementById('menu-icon-open');
+
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle accessibility state
+                btn.setAttribute('aria-expanded', !expanded);
+                
+                // Toggle visibility
+                menu.classList.toggle('open');
+                
+                // Toggle icons
+                iconClosed.classList.toggle('hidden');
+                iconClosed.classList.toggle('block');
+                iconOpen.classList.toggle('hidden');
+                iconOpen.classList.toggle('block');
+            });
+        });
+    </script>
+</body>
+</html>
