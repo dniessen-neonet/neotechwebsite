@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEOTech 2027 - Northeast Ohio's Premier EdTech Conference</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Robotics Competition - NEOTech 2027</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -40,11 +39,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* Hero Image overlay for better text readability */
-        .hero-overlay {
-            background: linear-gradient(to right, rgba(6, 54, 114, 0.9) 0%, rgba(6, 54, 114, 0.6) 100%);
-        }
-
         /* Simple hover transition for links and buttons */
         .transition-all-200 {
             transition: all 0.2s ease-in-out;
@@ -65,7 +59,7 @@
     </style>
 </head>
 
-    <!-- Navigation Header -->
+<!-- Navigation Header -->
 <header class="bg-neo-blue text-white sticky top-0 z-50 shadow-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between md:justify-end h-20">
@@ -108,115 +102,161 @@
     </div>
 </header>
 
+<body class="flex flex-col min-h-screen">
+
+
     <main class="flex-grow">
-        <!-- Hero Section -->
-        <div class="relative bg-neo-blue overflow-hidden">
-            <!-- Background Image with Overlay -->
-            <div class="absolute inset-0">
-                <img class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/d/1V0jav-JZzPbcf_9tW06vjEhrdT8wt4U-" alt="Audience at a conference">
-                <div class="absolute inset-0 hero-overlay"></div>
-            </div>
-            
-            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32 flex flex-col justify-center min-h-[70vh]">
-                <div class="md:w-2/3 lg:w-1/2">
-<img src="images/neotech27whitelogo.svg" 
+        
+        <!-- Page Header -->
+        <div class="bg-neo-blue py-16 lg:py-24 border-b-8 border-neo-gold">
+           <img src="images/neotech27whitelogo.svg" 
             alt="Neotech Logo" 
-            class="mr-auto mb-6 h-24 w-auto" 
+            class="mx-auto mb-6 h-16 w-auto" 
         />
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl text-white mb-6 leading-tight">
-                        Improving Education <br>
-                        <span class="text-neo-gold">with Technology</span>
-                    </h1>
-                   
-                    
-                    <div class="mt-8 text-white flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-8">
-                        <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-neo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                            <span class="font-medium text-lg">March 16, 2027</span>
-                        </div>
-                        <div class="flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-neo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                            <span class="font-medium text-lg">Kent State University</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-title tracking-wide">
+                    Robotics Competition
+                </h1>
             </div>
         </div>
 
-        <!-- About Section -->
-        <section class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-4xl text-neo-blue mb-4">What is NEOTech?</h2>
-                    <div class="w-24 h-1 bg-neo-gold mx-auto mb-6 rounded"></div>
-                    <p class="text-lg text-gray-600">
-                     NEOTech 2027 is an Educational Technology Conference for educators and school administrators in Northeast Ohio. NEOTech aims to provide attendees with valuable insights and tools to enhance their teaching methods and overall educational experience. Participants can look forward to engaging sessions and networking opportunities to stay updated with the evolving landscape of educational technology. 
-                    </p>
-                </div>
-
-                <!-- Highlights Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all-200 text-center">
-                        <div class="w-16 h-16 bg-neo-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-neo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl text-neo-blue mb-3">Innovative Sessions</h3>
-                        <p class="text-gray-600">Over 50 breakout sessions covering AI in education, Google tools, digital citizenship, project-based learning, and much more.</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all-200 text-center">
-                        <div class="w-16 h-16 bg-neo-blue rounded-full flex items-center justify-center mx-auto mb-6">
-                            <svg class="w-8 h-8 text-neo-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                        </div>
-                        <h3 class="text-2xl text-neo-blue mb-3">Networking</h3>
-                        <p class="text-gray-600">Connect with hundreds of like-minded educators. Share challenges, brainstorm solutions, and build a supportive professional learning network.</p>
-                    </div>
-
-                     <!-- Card 3 -->
-                             <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-all-200 text-center">
-    <div class="w-16 h-16 bg-neo-blue rounded-full flex items-center justify-center mx-auto mb-6">
-        <i class="fa-solid fa-person-chalkboard text-neo-gold text-3xl"></i>
-    </div>
-    <h3 class="text-2xl text-neo-blue mb-3">Sponsor Hall</h3>
-    <p class="text-gray-600">Explore the newest hardware, software, and services from leading EdTech companies and local organizations. Get hands-on demos and find solutions for your school.</p>
-</div>       </div>
-            </div>
-        </section>
-
-        <!-- Robotics CTA Section -->
-        <section class="py-16 bg-neo-gold">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
-                    <div class="lg:w-2/3">
-                        <h2 class="text-4xl text-neo-blue mb-4">NEOTech Robotics Competition</h2>
-                        <p class="text-xl text-neo-blue/80 font-medium mb-6">
-                            Join us for the annual NEOTech Middle School Robotics Competition featuring several exciting games. Is your school ready to compete?
-                        </p>
-                    </div>
-                    <div class="lg:w-1/3 text-left lg:text-right w-full">
-                        <a href="https://www.neotechconference.org/robotics-competition" class="inline-block bg-neo-blue text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-neo-blue transition-all-200 shadow-md w-full lg:w-auto text-center">
-                            Learn More & Join
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call for Presenters (Placeholder for common EdTech conference feature) -->
-        <section class="py-20 bg-slate-100">
-            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl text-neo-blue mb-6">Call for Presenters is Coming Soon!</h2>
-                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                    Do you have an amazing EdTech strategy, tool, or lesson to share? We want to hear from you! Lead a breakout session and help inspire educators across Northeast Ohio.
+        <!-- Intro Content -->
+        <section class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-xl md:text-2xl text-gray-700 leading-relaxed">
+                    Each year, NEOTech hosts a robotics competition for local middle school students. Participants use the 
+                    <a href="https://www.thenrc.org/contest-manual" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-all-200">NRC's guidelines</a> 
+                    to compete in tournaments in Boxbot, Mini Sumo, and Maze.
                 </p>
-                <a href="https://www.neotechconference.org" class="inline-block bg-white text-neo-blue border-2 border-neo-blue px-8 py-3 rounded-full font-bold text-lg hover:bg-neo-blue hover:text-white transition-all-200">
-                    Submission Form Coming Soon!
-                </a>
             </div>
         </section>
 
+        <!-- Competition Overview Promo Section -->
+        <section class="py-16 bg-cover bg-center bg-no-repeat relative" style="background-image: url('images/nt27roboticsbackground.svg');">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- 3 Feature Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch mb-12">
+                    
+                    <!-- Card 1: WHAT? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHAT?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug mb-4">
+                                Robotics Competition for local 5th-8th Grade Middle School Students.
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+                                Students' families, teachers, and administrators are welcome to spectate.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: WHERE? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHERE?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug">
+                                Kent State University<br>Student Center Ballroom
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg mt-4">
+                                1075 Risman Dr, Kent, OH 44242
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-2">
+                            <img src="images/kentstatelogo.jpg" alt="Kent State University Logo" class="h-12 mx-auto object-contain">
+                        </div>
+                    </div>
+
+                    <!-- Card 3: WHEN? -->
+                    <div class="bg-white rounded-3xl shadow-md overflow-hidden flex flex-col justify-between p-6 text-center border border-gray-100">
+                        <div>
+                            <div class="bg-neo-blue text-white font-title text-2xl py-2 px-6 rounded-2xl mb-6 shadow-sm inline-block w-full max-w-[200px]">
+                                WHEN?
+                            </div>
+                            <p class="text-gray-900 font-semibold text-lg md:text-xl leading-snug mb-4">
+                                March 16th, 2027
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg mb-4">
+                                Competitions begin at 9:30am
+                            </p>
+                            <p class="text-gray-700 text-base md:text-lg">
+                                Contact <a href="mailto:neotech@neonet.org" class="text-neo-blue underline font-semibold hover:text-neo-gold">neotech@neonet.org</a> for details
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Signup Button -->
+                <div class="text-center">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeTT3bwENpy1XqweVZSHb8_6Vaz9nBJK8VOOfWmTQk8A0CUFw/viewform" class="inline-block bg-white hover:bg-slate-50 text-neo-blue font-title text-xl md:text-2xl py-4 px-8 rounded-full border-2 border-neo-blue shadow-lg hover:shadow-xl transition-all-200">
+                        Sign Up Here!
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Highlights Videos -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl text-neo-blue mb-4">Competition Highlights</h2>
+                    <div class="w-24 h-1 bg-neo-gold mx-auto rounded"></div>
+                </div>
+
+                <!-- Video Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- 2026 Video -->
+                    <a href="https://www.youtube.com/watch?v=6lEuwcqf2WU" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2026 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- 2025 Video -->
+                    <a href="https://www.youtube.com/watch?v=iRP0oFrRH1k" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2025 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                    <!-- 2024 Video -->
+                    <a href="https://www.youtube.com/watch?v=DDub-HGgnVo" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center justify-center bg-white p-10 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg hover:border-neo-blue transition-all-200">
+                        <svg class="w-16 h-16 text-neo-gold mb-4 group-hover:scale-110 transition-transform duration-200" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                        </svg>
+                        <h3 class="text-3xl text-neo-blue mb-4 text-center font-title group-hover:text-neo-light-blue transition-colors duration-200">2024 Highlights</h3>
+                        <div class="flex items-center text-gray-500 group-hover:text-neo-blue transition-colors duration-200">
+                            <span class="mr-2 font-medium">Watch Video</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
     </main>
 <footer class="bg-neo-blue text-white py-12 border-t-4 border-neo-gold text-center">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
