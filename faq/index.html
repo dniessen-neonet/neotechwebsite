@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - NEOTech 2027</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neo-blue': '#063672',
+                        'neo-gold': '#E9BE5A',
+                        'neo-light-blue': '#1e5296', // Slightly lighter blue for hover states
+                    },
+                    fontFamily: {
+                        'title': ['Lilita One', 'Roboto', 'sans-serif'],
+                        'body': ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles to supplement Tailwind */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc; /* Very light slate background */
+            color: #334155;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-title {
+            font-family: 'Lilita One', 'Roboto', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Simple hover transition for links and buttons */
+        .transition-all-200 {
+            transition: all 0.2s ease-in-out;
+        }
+        
+        /* Ensure the mobile menu has a smooth transition */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        
+        #mobile-menu.open {
+            max-height: 300px; /* Adjust based on content */
+            opacity: 1;
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px; /* Arbitrary large number to allow content to show */
+            opacity: 1;
+            padding-top: 1rem; /* 16px */
+            padding-bottom: 1.5rem; /* 24px */
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<!-- Navigation Header -->
+<header class="bg-neo-blue text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between md:justify-end h-20">
+            
+            <!-- Mobile Hamburger Button (Aligned Left) -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-neo-light-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Icon when menu is closed -->
+                    <svg id="menu-icon-closed" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!-- Icon when menu is open -->
+                    <svg id="menu-icon-open" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links (Aligned Right) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+                <a href="https://www.neotechconference.org/robotics-competition" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer (Aligned Left) -->
+    <div id="mobile-menu" class="md:hidden bg-neo-blue border-t border-neo-light-blue">
+        <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col items-start">
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+            <a href="https://www.neotechconference.org/robotics-competition" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+        </div>
+    </div>
+</header>
+
+
+    <main class="flex-grow">
+        
+        <!-- Page Header -->
+<div class="bg-neo-blue py-16 lg:py-24 border-b-8 border-neo-gold">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <img src="../images/neotech27whitelogo.svg" 
+            alt="Neotech Logo" 
+            class="mx-auto mb-6 h-16 w-auto" 
+        />
+        <h1 class="text-4xl md:text-5xl lg:text-6xl text-white font-title tracking-wide">
+            Frequently Asked Questions
+        </h1>
+    </div>
+</div>
+        <!-- FAQ Section -->
+        <section class="py-16 bg-slate-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="bg-white shadow-sm border border-slate-200 rounded-2xl overflow-hidden divide-y divide-slate-100">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">What is NEOTech 2027?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>NEOTech 2027 is an Educational Technology Conference for educators and school administrators around Northeast Ohio. NEOTech aims to provide attendees with valuable insights and tools to enhance their teaching methods and overall educational experience. Participants can look forward to engaging sessions and networking opportunities to stay updated with the evolving landscape of educational technology.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">I have a specific question, who should I contact?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Send an email to <a href="mailto:neotech@neonet.org" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">neotech@neonet.org</a> for any questions or concerns.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Where and when is NEOTech 2027 being held?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Date and venue information will be provided soon!</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Is NEOTech free to attend?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Yes! NEOTech is a FREE EdTech Conference.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">If I am presenting at NEOTech, do I still need to get a ticket?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Yes! Visit <a href="https://www.neotechconference.org/tickets" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">https://www.neotechconference.org/tickets</a> and register for the Presenter Ticket.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">How Do I get tickets?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Tickets are free, and you can register on this website at <a href="https://www.neotechconference.org/tickets" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">neotechconference.org/tickets</a> once tickets open.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">What about parking?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Parking vouchers for the <a href="https://maps.app.goo.gl/q7w93vWXWtg3e4PYA" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">Kent State Student Center Visitor Lot</a> will be provided to attendees on a first-come-first-serve basis. Free overflow parking is across the street. Visit <a href="https://www.neotechconference.org/venue" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">neotechconference.org/venue</a> for more information.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 8 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Will any breakout sessions be held virtually?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>No, NEOTech 2027 is a completely in-person event.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 9 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Will I need to bring my own lunch?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>No! NEOTech 2027 will provide attendees with a free boxed lunch, courtesy of our sponsors.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 10 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Will there be a keynote presentation?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Keynote information will be provided at a later date.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 11 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">What is Whova?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p class="mb-4">Whova is a smartphone app you may use during the conference. Whova provides you with the opportunity to network, share photos, organize your schedule for the day, and much more!</p>
+                            <p class="mb-4">Download the app, then log in or create an account with the same email address used when getting your ticket.</p>
+                            <ul class="list-none space-y-2">
+                                <li><a href="https://apps.apple.com/us/app/whova-event-conference-app/id716979741" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">Get Whova for iPhone here</a></li>
+                                <li><a href="https://play.google.com/store/apps/details?id=com.whova.event&hl=en_US" target="_blank" rel="noopener noreferrer" class="text-neo-blue font-bold underline decoration-2 underline-offset-4 hover:text-neo-gold transition-colors">Get Whova for Android here</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 12 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">What is the Robotics Competition?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>For many years, NEOTech has hosted local school districts for a middle school robotics competition. Learn more on the Robotics page of this website.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 13 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">If my child is participating in the Robotics Competition, can I come?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Yes! Details for date, location, etc. will be provided at a later time.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 14 -->
+                    <div class="faq-item group">
+                        <button class="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none hover:bg-slate-50 transition-colors" onclick="toggleFaq(this)">
+                            <span class="font-title text-2xl text-neo-blue group-hover:text-neo-light-blue transition-colors">Can I watch the Robotics Competition?</span>
+                            <span class="faq-icon text-neo-gold ml-4 shrink-0 bg-neo-gold/10 p-2 rounded-full">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </span>
+                        </button>
+                        <div class="faq-answer px-8 text-gray-600 leading-relaxed text-lg">
+                            <p>Yes! NEOTech attendees may watch the Robotics Competition.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+<footer class="bg-neo-blue text-white py-12 border-t-4 border-neo-gold text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Added justify-items-center to align grid items horizontally -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
+            
+            <!-- Brand Info -->
+            <div class="col-span-1 md:col-span-1">
+                <!-- Added justify-center to center the logo image -->
+                <div class="flex items-center justify-center mb-4">
+                    <img class="h-20 w-auto" src="../images/neotech27whitelogo.svg" alt="NEOTech Logo">
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div>
+                <h4 class="font-title text-xl text-neo-gold mb-4">Contact Us</h4>
+                <ul class="space-y-2 text-sm text-gray-300">
+                    <li><a href="mailto:neotech@neonet.org" class="hover:text-white transition-all-200">neotech@neonet.org</a></li>
+                </ul>
+            </div>
+
+            <!-- Socials -->
+            <div>
+                <h4 class="font-title text-xl text-neo-gold mb-4">Follow Us</h4>
+                <!-- Added justify-center to center the social icon list -->
+                <div class="flex space-x-4 justify-center">
+                    <a href="https://x.com/NEOTechConf" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our X (Twitter) profile">
+                        <span class="sr-only">X (Twitter)</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/NEOnetITC/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Facebook page">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/neonetoh/?hl=en" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Instagram page">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="https://www.neonet.org" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-all-200" aria-label="Visit our Website">
+                        <span class="sr-only">Website</span>
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 pt-8 border-t border-neo-light-blue text-center text-sm text-gray-400">
+            <p>&copy; 2026/2027 NEOnet | All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // Simple script to handle mobile menu toggling
+        document.addEventListener('DOMContentLoaded', () => {
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            const iconClosed = document.getElementById('menu-icon-closed');
+            const iconOpen = document.getElementById('menu-icon-open');
+
+            btn.addEventListener('click', () => {
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle accessibility state
+                btn.setAttribute('aria-expanded', !expanded);
+                
+                // Toggle visibility
+                menu.classList.toggle('open');
+                
+                // Toggle icons
+                iconClosed.classList.toggle('hidden');
+                iconClosed.classList.toggle('block');
+                iconOpen.classList.toggle('hidden');
+                iconOpen.classList.toggle('block');
+            });
+        });
+
+        // FAQ Accordion Logic
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            
+            // Close all other open items
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== faqItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.querySelector('button').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            faqItem.classList.toggle('active');
+            
+            // Update ARIA
+            const isExpanded = faqItem.classList.contains('active');
+            button.setAttribute('aria-expanded', isExpanded);
+        }
+    </script>
+</body>
+</html>
