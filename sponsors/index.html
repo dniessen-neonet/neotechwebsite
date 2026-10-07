@@ -450,6 +450,49 @@
         }
     </style>
 </head>
+    <!-- Navigation Header -->
+<header class="bg-neo-blue text-white sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between md:justify-end h-20">
+            
+            <!-- Mobile Hamburger Button (Aligned Left) -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-neo-light-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Icon when menu is closed -->
+                    <svg id="menu-icon-closed" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                    <!-- Icon when menu is open -->
+                    <svg id="menu-icon-open" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Navigation Links (Aligned Right) -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+                <a href="https://www.neotechconference.org/robotics-competition" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+                <a href="#" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer (Aligned Left) -->
+    <div id="mobile-menu" class="md:hidden bg-neo-blue border-t border-neo-light-blue">
+        <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col items-start">
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+            <a href="https://www.neotechconference.org/robotics-competition" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+            <a href="#" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+        </div>
+    </div>
+</header>
+
 <body class="flex flex-col min-h-screen">
 
     <main class="flex-grow bg-slate-50">
