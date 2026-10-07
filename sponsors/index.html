@@ -209,18 +209,10 @@
             transform: rotate(180deg);
         }
 
+        /* Permanently visible sponsor button container */
         .sponsor-container {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
             width: 100%;
             text-align: center;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.4s ease;
-        }
-
-        .sponsor-container.show {
-            max-height: 100px;
-            opacity: 1;
             margin-top: 10px;
         }
 
@@ -450,50 +442,51 @@
         }
     </style>
 </head>
- <!-- Navigation Header -->
-<header class="bg-neo-blue text-white sticky top-0 z-50 shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between md:justify-end h-20">
-            
-            <!-- Mobile Hamburger Button (Aligned Left) -->
-            <div class="md:hidden flex items-center">
-                <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-neo-light-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <!-- Icon when menu is closed -->
-                    <svg id="menu-icon-closed" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                    <!-- Icon when menu is open -->
-                    <svg id="menu-icon-open" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Desktop Navigation Links (Aligned Right) -->
-            <nav class="hidden md:flex space-x-8">
-                <a href="../" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
-                <a href="../robotics-competition/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
-                <a href="../sponsors/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
-                <a href="../more-pd/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
-                <a href="../faq/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
-            </nav>
-        </div>
-    </div>
-
-    <!-- Mobile Navigation Drawer (Aligned Left) -->
-    <div id="mobile-menu" class="md:hidden bg-neo-blue border-t border-neo-light-blue">
-        <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col items-start">
-            <a href="../" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
-            <a href="../robotics-competition" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
-            <a href="../sponsors/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
-            <a href="../more-pd/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
-            <a href="../faq/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
-        </div>
-    </div>
-</header>
 
 <body class="flex flex-col min-h-screen">
+
+    <!-- Navigation Header -->
+    <header class="bg-neo-blue text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between md:justify-end h-20">
+                
+                <!-- Mobile Hamburger Button (Aligned Left) -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-neo-light-blue focus:outline-none" aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Icon when menu is closed -->
+                        <svg id="menu-icon-closed" class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
+                        <!-- Icon when menu is open -->
+                        <svg id="menu-icon-open" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Desktop Navigation Links (Aligned Right) -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="../" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+                    <a href="../robotics-competition/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+                    <a href="../sponsors/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+                    <a href="../more-pd/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+                    <a href="../faq/" class="font-body text-lg font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer (Aligned Left) -->
+        <div id="mobile-menu" class="md:hidden bg-neo-blue border-t border-neo-light-blue">
+            <div class="px-4 pt-2 pb-4 space-y-2 flex flex-col items-start">
+                <a href="../" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Home</a>
+                <a href="../robotics-competition" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Robotics Competition</a>
+                <a href="../sponsors/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">Sponsors</a>
+                <a href="../more-pd/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">More PD</a>
+                <a href="../faq/" class="font-body text-lg py-2 font-medium hover:text-[#E9BE5A] transition-all-200">FAQ</a>
+            </div>
+        </div>
+    </header>
 
     <main class="flex-grow bg-slate-50">
         
@@ -926,7 +919,6 @@
         function toggleCard(btn) {
             const card = btn.closest('.neotech-card');
             const collapsible = card.querySelector('.neotech-collapsible');
-            const sponsorContainer = card.querySelector('.sponsor-container');
             const btnText = btn.querySelector('.btn-text');
             const hasHiddenItems = collapsible.querySelector('ul') !== null;
             
@@ -936,9 +928,6 @@
                 collapsible.style.maxHeight = '0px';
                 collapsible.classList.remove('expanded');
                 
-                sponsorContainer.style.maxHeight = '0px';
-                sponsorContainer.classList.remove('show');
-                
                 btn.classList.remove('expanded');
                 btnText.innerText = hasHiddenItems ? 'Show More' : 'Show Options';
             } else {
@@ -946,9 +935,6 @@
                     collapsible.classList.add('expanded');
                     collapsible.style.maxHeight = collapsible.scrollHeight + 'px';
                 }
-                
-                sponsorContainer.classList.add('show');
-                sponsorContainer.style.maxHeight = sponsorContainer.scrollHeight + 'px';
                 
                 btn.classList.add('expanded');
                 btnText.innerText = hasHiddenItems ? 'Show Less' : 'Hide Options';
